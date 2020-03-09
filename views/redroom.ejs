@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Red Room</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <link rel="stylesheet" href="../styles.css" type="text/css">
+</head>
+<body style="background-color: red;">
+    <h1>WELCOME TO RAINBOW CHAT ROOMS</h1>
+    <div id="main">
+        <nav>
+            <ul>
+                <li><a href="/">Lobby</a></li>
+                <li><a href="/red">Red</a></li>
+                <li><a href="/orange">Orange</a></li>
+                <li><a href="/yellow">Yellow</a></li>
+                <li><a href="/green">Green</a></li>
+                <li><a href="/blue">Blue</a></li>
+                <li><a href="/indigo">Indigo</a></li>
+                <li><a href="/violet">Violet</a></li>
+            </ul>
+        </nav>
+        <h2 id="room_name">RED ROOM</h2>
+        <div style="display: flex; flex-direction: row; max-width: 20%;">
+            <input id="username" placeholder="Change username" />
+            <button id="change_username">Change Username</button>
+        </div>
+
+        <div id="chatroom" style="height: 80%;">
+            <p id="typing_message"></p>
+        </div>
+        <div style="display: flex; flex-direction: row; max-width: 20%;">
+            <input id="message" placeholder="Type a message..." />
+            <button id="send_message">SEND</button>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="red.js"></script>
+</body>
+</html>

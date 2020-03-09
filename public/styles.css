@@ -1,0 +1,47 @@
+ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 1em 2em;
+    border: 2px solid black;
+    transition: 0.5s;
+    background: white;
+}
+a:hover {
+    background-color: blue;
+    color: white;
+}
+ul {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    justify-content: space-around;
+}
+li {
+    text-decoration: none;
+    color: white;   
+}
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 40em;
+}
+#message {
+    min-width: 500px;
+}
+#chatroom {
+    height: 80%;
+    min-width: 500px;
+    max-width: 80%;
+    border: 3px black dashed;
+    padding: 1em;
+    overflow: auto;
+    background: white;
+}
+#links button {
+    min-width: 20em;
+    padding: 2em;
+}
+#links button:hover {
+    cursor: pointer;
+}
