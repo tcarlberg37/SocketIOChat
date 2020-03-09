@@ -5,12 +5,12 @@
 const express = require('express');
 const app = express();
 var io = require('socket.io'); // var not const because we change this value further down with io = io.listen(server)
-const Message = require('./backend/models/MessageSchema.js'); // Mongoose schemas for Message and EventLog
-const EventLog = require('./backend/models/EventLog.js');
+const Message = require('./models/MessageSchema.js'); // Mongoose schemas for Message and EventLog
+const EventLog = require('./models/EventLog.js');
 var path = require('path');
 const bodyParser = require('body-parser'); // needed for POSTing json
-const apiRoute = require('./backend/routes/api_routes.js'); // link to all the history api functions
-const database = require('./backend/database/db.js'); // database connection string
+const apiRoute = require('./routes/api_routes.js'); // link to all the history api functions
+const database = require('./database/db.js'); // database connection string
 const moment = require('moment'); // used for getting date and time as strings
 const mongoose = require('mongoose'); // database operations
 
@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use('/api/', apiRoute); // api routes all start with /api/
-// endpoint to call the api functions (MAKE SURE TO CHANGE WHEN UPLOADING TO HEROKU)
+// endpoint to call the api functions
 const endpoint = 'http://localhost:3000/api';
 
 // page routes
@@ -534,7 +534,7 @@ const blueroom = io.of('/blue');
 blueroom.on('connection', (socket) => {
   socket.join('blue');
   socket.room = 'blue'
-  socket.username = 'Anonymous'; 
+  socket.username = 'Anonymous';
   console.log(socket.room);
   console.log('Connection accepted to ' + socket.room);
   var connectEvent = EventLog({type: 'CONNECT', 
@@ -647,7 +647,7 @@ const indigoroom = io.of('/indigo');
 indigoroom.on('connection', (socket) => {
   socket.join('indigo');
   socket.room = 'indigo'
-  socket.username = 'Anonymous'; 
+  socket.username = 'Anonymous'; // default username to anonymous but give user the option to change it
   console.log(socket.room);
   console.log('Connection accepted to ' + socket.room);
   var connectEvent = EventLog({type: 'CONNECT', 
